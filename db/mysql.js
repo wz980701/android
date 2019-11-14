@@ -2,9 +2,9 @@ const mysql = require('mysql')
 const { MYSQL_CONF } = require('../conf/default')
 
 const con = mysql.createConnection({
-    host: '127.0.0.1',
+    host: '47.103.12.86',
     user: 'root',
-    password: '123456',
+    password: '138290Wz..0',
     database: 'blog_android'
 })  // 创建连接
 

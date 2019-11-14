@@ -13,7 +13,8 @@ const getDetail = async (id) => {
     const sql = `
         select * from blog where id=${id};
     `
-    return await exec(sql)
+    const data = await exec(sql);
+    return data[0]
 }
 
 const addBlog = async (username, title, content) => {
@@ -25,6 +26,13 @@ const addBlog = async (username, title, content) => {
 }
 
 const like = async (id, username, author, title) => {
+    const sql = `
+        select * from blog_like where username='${username}' and blog_id=${id};
+    `
+    const data = await exec(sql)
+    if (data.length > 0) {
+        return false
+    }
     const sql1 = `
         update blog set blog.like=blog.like + 1 where id = ${id};
     `
